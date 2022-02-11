@@ -1,14 +1,16 @@
 import { renderBlock } from './lib.js'
+import {IUser} from "./interface/IUser.interface.js";
 
-export function renderUserBlock (nameUser: string, linkAvatar: string, favoriteItemsAmount: number) {
-  const favoritesCaption = favoriteItemsAmount ? favoriteItemsAmount : 'ничего нет';
-  const hasFavoriteItems = !!favoriteItemsAmount;
+export function renderUserBlock (user: IUser) {
+  const {avatarUrl, nameUser, favoritesAmount} = user;
+  const favoritesCaption = favoritesAmount ? favoritesAmount : 'ничего нет';
+  const hasFavoriteItems = !!favoritesAmount;
 
   renderBlock(
     'user-block',
     `
     <div class="header-container">
-      <img class="avatar" src="${linkAvatar}" alt="${nameUser}" />
+      <img class="avatar" src="${avatarUrl}" alt="${nameUser}" />
       <div class="info">
           <p class="name">${nameUser}</p>
           <p class="fav">

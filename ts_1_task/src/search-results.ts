@@ -1,4 +1,5 @@
 import { renderBlock } from './lib.js'
+import {ISearchFormData} from "./interface/ISearchFormData.interface.js";
 
 export function renderSearchStubBlock () {
   renderBlock(
@@ -24,7 +25,8 @@ export function renderEmptyOrErrorSearchBlock (reasonMessage) {
   )
 }
 
-export function renderSearchResultsBlock () {
+export function renderSearchResultsBlock (searchData: ISearchFormData) {
+  console.log('searchData', searchData);
   renderBlock(
     'search-results-block',
     `
